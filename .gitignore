@@ -131,5 +131,8 @@ dist
 
 
 # for firebase
-.config
+config
 firebase.json
+firebase-config.js
+accountKey.json
+config/*
