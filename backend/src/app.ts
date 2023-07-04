@@ -37,9 +37,21 @@ const corsOptions = {
 app.use(cors(corsOptions));
 const client = createAndConnectToDatabase();
 
+const middleware = require('./middleware/index.ts');
+app.use(middleware.decodeToken);
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
+});
+
+app.get('/api/tasks', (req, res) => {
+	return res.json({
+		tasks: [
+			{title: 'Task1',},
+			{title: 'Task2',},
+		],
+	});
 });
 
 
