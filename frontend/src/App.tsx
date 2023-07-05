@@ -51,7 +51,7 @@ function App() {
       alert(error);
     });
   }
-  
+
   return (
     <div className="App">
      {authorizedUser ? (
