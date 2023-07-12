@@ -6,6 +6,9 @@ class Middleware {
 			const decodeValue = await admin.auth().verifyIdToken(token);
 			if (decodeValue) {
                 console.log(decodeValue);
+				// return decoded value to the next middleware
+				// req.body.uid = decodeValue.uid;
+				res.locals.userUuid = decodeValue.uid;
 				return next();
 			}
 			return res.json({ message: 'Unauthorized' });

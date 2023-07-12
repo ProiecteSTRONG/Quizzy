@@ -6,13 +6,13 @@ import { useEffect,useState } from 'react';
 export default function Tasks({token}: {token: string | null}) {
   const [tasks, setTasks] = useState([]);
   const fetchData = async(token: string)=>{
-    const response = await axios.get('http://localhost:8000/api/tasks',{
+    const response = await axios.get('http://localhost:8000/quizz/tasks',{
         headers:{
             'Authorization': `Bearer ${token}`
         }
     });
 
-    console.log(response)
+    console.log(response);
 
     if (response.status !== 200) {
       return alert('Error fetching tasks');

@@ -5,7 +5,7 @@ console.log('Starting user routes...');
 
 router.get('/', (req, res) => {
     res.send('Hello World from user!');
-  });
+});
   
 router.get('/tasks', (req, res) => {
     return res.json({

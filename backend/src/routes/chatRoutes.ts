@@ -5,7 +5,7 @@ console.log('Starting chat routes...');
 
 router.get('/', (req, res) => {
     res.send('Hello World from chat!');
-  });
+});
   
 router.get('/tasks', (req, res) => {
     return res.json({

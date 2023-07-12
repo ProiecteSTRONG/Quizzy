@@ -44,10 +44,12 @@ const middleware = require('./middleware/index.ts');
 const userRoutes = require('./routes/userRoutes.ts');
 const quizzRoutes = require('./routes/quizzRoutes.ts');
 const chatRoutes = require('./routes/chatRoutes.ts');
+const authRoutes = require('./routes/authRoutes.ts');
 
 app.use('/user', userRoutes);
 app.use('/quizz', quizzRoutes);
 app.use('/chat', chatRoutes);
+app.use('/auth', authRoutes);
 
 app.listen(port, () => {
   console.log(`app listening at http://localhost:${port}`);
