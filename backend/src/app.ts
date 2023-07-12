@@ -38,23 +38,19 @@ app.use(cors(corsOptions));
 const client = createAndConnectToDatabase();
 
 const middleware = require('./middleware/index.ts');
-app.use(middleware.decodeToken);
+// comenteaza daca lucrezi doar la backend
+// app.use(middleware.decodeToken);
 
+const userRoutes = require('./routes/userRoutes.ts');
+const quizzRoutes = require('./routes/quizzRoutes.ts');
+const chatRoutes = require('./routes/chatRoutes.ts');
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-app.get('/api/tasks', (req, res) => {
-	return res.json({
-		tasks: [
-			{title: 'Task1',},
-			{title: 'Task2',},
-		],
-	});
-});
-
+app.use('/user', userRoutes);
+app.use('/quizz', quizzRoutes);
+app.use('/chat', chatRoutes);
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`app listening at http://localhost:${port}`);
 });
+
+module.exports = app;
